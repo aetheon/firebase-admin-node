@@ -88,6 +88,7 @@ function validateStringMap(map: { [key: string]: any } | undefined, label: strin
   }
   Object.keys(map).forEach((key) => {
     if (!validator.isString(map[key])) {
+      console.log(`${label} must only contain string values`, { map, key })
       throw new FirebaseMessagingError(
         MessagingClientErrorCode.INVALID_PAYLOAD, `${label} must only contain string values`);
     }
